@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css'
 import Connector from './Connector'
+// export NODE_OPTIONS=--openssl-legacy-provider
 
 function App () {
   return (

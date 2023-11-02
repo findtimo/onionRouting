@@ -9,14 +9,14 @@
 // }
 
 const config = {
-  apiKey: "AIzaSyDiegodir8ePoMA7wu46J1SZm-qch4XUKQ",
-  authDomain: "onionrouting-edd81.firebaseapp.com",
-  databaseURL: "https://onionrouting-edd81-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "onionrouting-edd81",
-  storageBucket: "onionrouting-edd81.appspot.com",
-  messagingSenderId: "99795928320",
-  appId: "1:99795928320:web:cb72ab826977a6b105dfe5",
-  measurementId: "G-LHF6TB5PJX"
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  databaseURL: process.env.DATABASE_URL,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID,
+  measurementId: process.env.MEASUREMENT_ID,
 };
 
 export default config
