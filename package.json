@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@mantine/core": "^6.0.0",
+    "@mantine/hooks": "^6.0.0",
     "classnames": "^2.2.6",
     "dotenv": "^16.3.1",
     "firebase": "^7.19.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-scripts": "3.2.0"
   },
   "scripts": {
@@ -35,6 +37,9 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "postcss": "^8.4.31",
+    "postcss-preset-mantine": "^1.9.0",
+    "postcss-simple-vars": "^7.0.1"
   }
 }
