@@ -63,15 +63,15 @@ class Connector extends React.Component {
   checkMessage = () => {
     const msg = this.state.message
     if (this.state.layer === 4) {
+      this.sendMessage()
       this.state.layer = 3;
     }
     else if (this.state.layer === 3) {
-      console.log(msg + " " + "Zcl Bmtcp");
       if (msg === "Zcl Bmtcp") {
         console.log("yes")
-        this.setState({ isCorrect: false, statusMsg: "Successfully peeled off layer" });
+        this.setState({ isCorrect: false, statusMsg: "You received a message: Zcl Bmtcp. Enter it in the chatbox to join!" });
       } else {
-        this.setState({ isCorrect: true, statusMsg: "Wrong try again" })
+        this.setState({ isCorrect: true, statusMsg: "You received a message: Zcl Bmtcp. Enter it in the chatbox to join!" })
       }
     }
     else if (this.state.layer === 2) {
