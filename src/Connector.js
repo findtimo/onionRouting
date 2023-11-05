@@ -10,7 +10,7 @@ class Connector extends React.Component {
     super(props)
     this.state = {
       isCorrect: true,
-      statusMsg: '',
+      statusMsg: `You received a message: "Zcl Bmtcp".\nEnter to join`,
       database: null,
       isConnected: false,
       myId: '',
@@ -69,9 +69,9 @@ class Connector extends React.Component {
     else if (this.state.layer === 3) {
       if (msg === "Zcl Bmtcp") {
         console.log("yes")
-        this.setState({ isCorrect: false, statusMsg: "You received a message: Zcl Bmtcp. Enter it in the chatbox to join!" });
+        this.setState({ isCorrect: false, statusMsg: `You received a message: "Zcl Bmtcp".\nEnter to join` });
       } else {
-        this.setState({ isCorrect: true, statusMsg: "You received a message: Zcl Bmtcp. Enter it in the chatbox to join!" })
+        this.setState({ isCorrect: true, statusMsg: `You received a message: "Zcl Bmtcp".\nEnter to join` })
       }
     }
     else if (this.state.layer === 2) {
@@ -108,9 +108,9 @@ class Connector extends React.Component {
       })
       this.setState({
         message: '',
-        statusMsg: '',
+        statusMsg: `You received a message: "Zcl Bmtcp".\nEnter to join`,
         isCorrect: true,
-        layer: layer-1
+        layer: layer - 1
       })
     } catch (e) {
       console.error(e)
@@ -124,13 +124,52 @@ class Connector extends React.Component {
   }
 
   render() {
+    console.log(this.state.layer)
     return <div>
       {this.state.isConnected ? (
         this.state.layer >= 0 ? (
-          <div>
-            <div>Status: {this.state.statusMsg}</div>
-            <h3>Send a message:</h3>
-            <input 
+          <div style={{ width: '100%' }}>
+          {/* <img src="Tor-Emblem.png" alt="Onion Routing Logo" width="150" height="150"/> */}
+          <center><h1>Onion Routing App</h1></center>
+            <div>
+              {this.state.layer === 4 ? (
+                <img src="1use1.png" width="150" height="150" />
+              ) : (
+                <img src="use1.png" width="150" height="150" />
+              )}
+              <img style={{ paddingLeft: '10px', paddingRight: '10px' }} src="arrow.png" width="70" height="50" />
+              
+              {this.state.layer === 3 ? (
+                <img src="1use2.png" width="150" height="150" />
+              ) : (
+                <img src="use2.png" width="150" height="150" />
+              )}
+              <img style={{ paddingLeft: '10px', paddingRight: '10px' }} src="arrow.png" width="70" height="50" />
+              
+              {this.state.layer === 2 ? (
+                <img src="1use3.png" width="150" height="150" />
+              ) : (
+                <img src="use3.png" width="150" height="150" />
+              )}
+              <img style={{ paddingLeft: '10px', paddingRight: '10px' }} src="arrow.png" width="70" height="50" />
+              
+              {this.state.layer === 1 ? (
+                <img src="1use4.png" width="150" height="150" />
+              ) : (
+                <img src="use4.png" width="150" height="150" />
+              )}
+              <img style={{ paddingLeft: '10px', paddingRight: '10px' }} src="arrow.png" width="70" height="50" />
+              
+              {this.state.layer === 0 ? (
+                <img src="1use5.png" width="150" height="150" />
+              ) : (
+                <img src="use5.png" width="150" height="150" />
+              )}
+            </div>
+            <center><div>
+            <h2 style={{ paddingTop: '15px' }}>Status: {this.state.statusMsg}</h2>
+            <h3 style={{ paddingTop: '15px' }}>Send a message:</h3>
+            <input
               placeholder='your message'
               value={this.state.message}
               onChange={(e) => {
@@ -142,11 +181,13 @@ class Connector extends React.Component {
             <Button disabled={this.state.isCorrect} onClick={this.sendMessage}>
               Send
             </Button>
-            <div>
+            {/* <div>
               Received messages: {this.state.messages.map(this.renderMessage)}
-            </div>
+            </div> */}
 
-            <h2>temp: Zcl Bmtcp, Ehq Gryhu, Mpy Ozgpc, Ben Dover</h2>
+            <span><br />This message uses a ROT13 sub cipher, you'll need to rotate each word by x steps,<br /> can you do it within the time limit!!?!</span>
+          </div>
+          </center>
           </div>
         ) : (
           <div>
@@ -157,6 +198,8 @@ class Connector extends React.Component {
       ) : (
         <div>
           <center>
+            <img src="Tor-Emblem.png" alt="Onion Routing Logo" width="150" height="150"/>
+            <h1>Onion Routing App</h1>
             <h2>Join as a node in our onion routing network</h2>
           </center>
           <h3>What is your ID:</h3>
