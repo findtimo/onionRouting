@@ -10,7 +10,7 @@ class Connector extends React.Component {
     super(props)
     this.state = {
       isCorrect: true,
-      statusMsg: `You received a message: "Zcl Bmtcp".\nEnter to join`,
+      statusMsg: `He dropped a message: "Zcl Bmtcp". Send it to start`,
       database: null,
       isConnected: false,
       myId: '',
@@ -18,6 +18,8 @@ class Connector extends React.Component {
       message: '',
       messages: [],
       layer: 4,
+      steps: 21,
+      code: 'None',
     }
   }
 
@@ -67,32 +69,38 @@ class Connector extends React.Component {
       this.state.layer = 3;
     }
     else if (this.state.layer === 3) {
+      this.setState({ steps: `21` });
       if (msg === "Zcl Bmtcp") {
         console.log("yes")
-        this.setState({ isCorrect: false, statusMsg: `You received a message: "Zcl Bmtcp".\nEnter to join` });
+        this.setState({ isCorrect: false, statusMsg: `He dropped a message: "Zcl Bmtcp". Send it to start` });
       } else {
-        this.setState({ isCorrect: true, statusMsg: `You received a message: "Zcl Bmtcp".\nEnter to join` })
+        this.setState({ isCorrect: true, statusMsg: `He dropped a message: "Zcl Bmtcp". Send it to start` })
       }
     }
     else if (this.state.layer === 2) {
+      this.setState({ steps: `18` });
+      this.setState({ code: `Zcl Bmtcp` });
       if (this.state.message === "Ehq Gryhu") {
-        this.setState({ isCorrect: false, statusMsg: `Prev: "Zcl Bmtcp". Successfully peeled off layer` });
+        this.setState({ isCorrect: false, statusMsg: `Successfully peeled off first layer. Continue!` });
       } else {
-        this.setState({ isCorrect: true, statusMsg: `Prev: "Zcl Bmtcp".  Wrong try agian` })
+        this.setState({ isCorrect: true, statusMsg: `Successfully peeled off first layer. Continue!` })
       }
     }
     else if (this.state.layer === 1) {
+      this.setState({ steps: `11` });
+      this.setState({ code: `Ehq Gryhu` });
       if (this.state.message === "Mpy Ozgpc") {
-        this.setState({ isCorrect: false, statusMsg: `Prev: "Ehq Gryhu". Successfully peeled off layer` });
+        this.setState({ isCorrect: false, statusMsg: `Successfully peeled off second layer. Continue!` });
       } else {
-        this.setState({ isCorrect: true, statusMsg: `Prev: "Ehq Gryhu". Wrong try again` })
+        this.setState({ isCorrect: true, statusMsg: `Successfully peeled off second layer. Continue!` })
       }
     }
     else if (this.state.layer === 0) {
+      this.setState({ code: `Mpy Ozgpc` });
       if (this.state.message === "Ben Dover") {
-        this.setState({ isCorrect: false, statusMsg: `Prev: "Mpy Ozgpc". Successfully peeled off layer` });
+        this.setState({ isCorrect: false, statusMsg: `Successfully peeled off last layer. One more!` });
       } else {
-        this.setState({ isCorrect: true, statusMsg: `Prev: "Mpy Ozgpc". Wrong try again` })
+        this.setState({ isCorrect: true, statusMsg: `Successfully peeled off last layer. One more!` })
       }
     }
 
@@ -108,13 +116,14 @@ class Connector extends React.Component {
       })
       this.setState({
         message: '',
-        statusMsg: `You received a message: "Zcl Bmtcp".\nEnter to join`,
+        statusMsg: `He dropped a message: "Zcl Bmtcp". Send it to start`,
         isCorrect: true,
         layer: layer - 1
       })
     } catch (e) {
       console.error(e)
     }
+    this.checkMessage();
   }
 
   renderMessage = (value, key) => {
@@ -130,9 +139,10 @@ class Connector extends React.Component {
         this.state.layer >= 0 ? (
           <div style={{ width: '100%' }}>
           {/* <img src="Tor-Emblem.png" alt="Onion Routing Logo" width="150" height="150"/> */}
-          <center><h1>Onion Routing App</h1></center>
+          <center><h1>Decipher the Message, Find the Killer!</h1></center>
             <center><div>
             <h2 style={{ paddingTop: '15px' }}>{this.state.statusMsg}</h2>
+            <span  style={{  }}>This message uses a ROT13 sub cipher, you'll need to rotate this word by {this.state.steps} steps,<br /> can you do it within the time limit!!?!<br/><br/></span>
             <input
               placeholder='Send the deciphered message'
               value={this.state.message}
@@ -145,11 +155,7 @@ class Connector extends React.Component {
             <Button disabled={this.state.isCorrect} onClick={this.sendMessage}>
               Send
             </Button>
-            {/* <div>
-              Received messages: {this.state.messages.map(this.renderMessage)}
-            </div> */}
-
-            <span  style={{  }}><br />This message uses a ROT13 sub cipher, you'll need to rotate each word by x steps,<br /> can you do it within the time limit!!?!</span>
+            <span><br/><br/>Previously deciphered: {this.state.code}</span>
             <div  style={{ paddingTop: '5rem' }}>
               {this.state.layer === 4 ? (
                 <img src="1use1.png" width="150" height="150" />
