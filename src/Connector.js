@@ -76,23 +76,23 @@ class Connector extends React.Component {
     }
     else if (this.state.layer === 2) {
       if (this.state.message === "Ehq Gryhu") {
-        this.setState({ isCorrect: false, statusMsg: "Successfully peeled off layer" });
+        this.setState({ isCorrect: false, statusMsg: `Prev: "Zcl Bmtcp". Successfully peeled off layer` });
       } else {
-        this.setState({ isCorrect: true, statusMsg: "Wrong try again" })
+        this.setState({ isCorrect: true, statusMsg: `Prev: "Zcl Bmtcp".  Wrong try agian` })
       }
     }
     else if (this.state.layer === 1) {
       if (this.state.message === "Mpy Ozgpc") {
-        this.setState({ isCorrect: false, statusMsg: "Successfully peeled off layer" });
+        this.setState({ isCorrect: false, statusMsg: `Prev: "Ehq Gryhu". Successfully peeled off layer` });
       } else {
-        this.setState({ isCorrect: true, statusMsg: "Wrong try again" })
+        this.setState({ isCorrect: true, statusMsg: `Prev: "Ehq Gryhu". Wrong try again` })
       }
     }
     else if (this.state.layer === 0) {
       if (this.state.message === "Ben Dover") {
-        this.setState({ isCorrect: false, statusMsg: "Successfully peeled off layer" });
+        this.setState({ isCorrect: false, statusMsg: `Prev: "Mpy Ozgpc". Successfully peeled off layer` });
       } else {
-        this.setState({ isCorrect: true, statusMsg: "Wrong try again" })
+        this.setState({ isCorrect: true, statusMsg: `Prev: "Mpy Ozgpc". Wrong try again` })
       }
     }
 
@@ -149,7 +149,7 @@ class Connector extends React.Component {
               Received messages: {this.state.messages.map(this.renderMessage)}
             </div> */}
 
-            <span  style={{ paddingTop: '4rem' }}><br />This message uses a ROT13 sub cipher, you'll need to rotate each word by x steps,<br /> can you do it within the time limit!!?!</span>
+            <span  style={{  }}><br />This message uses a ROT13 sub cipher, you'll need to rotate each word by x steps,<br /> can you do it within the time limit!!?!</span>
             <div  style={{ paddingTop: '5rem' }}>
               {this.state.layer === 4 ? (
                 <img src="1use1.png" width="150" height="150" />
@@ -159,40 +159,28 @@ class Connector extends React.Component {
               <img style={{ paddingLeft: '10px', paddingRight: '10px' }} src="arrow.png" width="70" height="50" />
               
               {this.state.layer === 3 ? (
-                <div>
                 <img src="1use2.png" width="150" height="150" />
-                <span>Zcl Bmtcp</span>
-                </div>
               ) : (
                 <img src="use2.png" width="120" height="120" />
               )}
               <img style={{ paddingLeft: '10px', paddingRight: '10px' }} src="arrow.png" width="70" height="50" />
               
               {this.state.layer === 2 ? (
-                <div>
                 <img src="1use3.png" width="150" height="150" />
-                <span>Ehq Gryhu</span>
-                </div>
               ) : (
                 <img src="use3.png" width="120" height="120" />
               )}
               <img style={{ paddingLeft: '10px', paddingRight: '10px' }} src="arrow.png" width="70" height="50" />
               
               {this.state.layer === 1 ? (
-                <div>
                 <img src="1use4.png" width="150" height="150" />
-                <span>Mpy Ozgpc</span>
-                </div>
               ) : (
                 <img src="use4.png" width="120" height="120" />
               )}
               <img style={{ paddingLeft: '10px', paddingRight: '10px' }} src="arrow.png" width="70" height="50" />
               
               {this.state.layer === 0 ? (
-                <div>
                 <img src="1use5.png" width="150" height="150" />
-                <span>Ben Dover</span>
-                </div>
               ) : (
                 <img src="use5.png" width="120" height="120" />
               )}
