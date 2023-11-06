@@ -131,46 +131,10 @@ class Connector extends React.Component {
           <div style={{ width: '100%' }}>
           {/* <img src="Tor-Emblem.png" alt="Onion Routing Logo" width="150" height="150"/> */}
           <center><h1>Onion Routing App</h1></center>
-            <div>
-              {this.state.layer === 4 ? (
-                <img src="1use1.png" width="150" height="150" />
-              ) : (
-                <img src="use1.png" width="150" height="150" />
-              )}
-              <img style={{ paddingLeft: '10px', paddingRight: '10px' }} src="arrow.png" width="70" height="50" />
-              
-              {this.state.layer === 3 ? (
-                <img src="1use2.png" width="150" height="150" />
-              ) : (
-                <img src="use2.png" width="150" height="150" />
-              )}
-              <img style={{ paddingLeft: '10px', paddingRight: '10px' }} src="arrow.png" width="70" height="50" />
-              
-              {this.state.layer === 2 ? (
-                <img src="1use3.png" width="150" height="150" />
-              ) : (
-                <img src="use3.png" width="150" height="150" />
-              )}
-              <img style={{ paddingLeft: '10px', paddingRight: '10px' }} src="arrow.png" width="70" height="50" />
-              
-              {this.state.layer === 1 ? (
-                <img src="1use4.png" width="150" height="150" />
-              ) : (
-                <img src="use4.png" width="150" height="150" />
-              )}
-              <img style={{ paddingLeft: '10px', paddingRight: '10px' }} src="arrow.png" width="70" height="50" />
-              
-              {this.state.layer === 0 ? (
-                <img src="1use5.png" width="150" height="150" />
-              ) : (
-                <img src="use5.png" width="150" height="150" />
-              )}
-            </div>
             <center><div>
-            <h2 style={{ paddingTop: '15px' }}>Status: {this.state.statusMsg}</h2>
-            <h3 style={{ paddingTop: '15px' }}>Send a message:</h3>
+            <h2 style={{ paddingTop: '15px' }}>{this.state.statusMsg}</h2>
             <input
-              placeholder='your message'
+              placeholder='Send the deciphered message'
               value={this.state.message}
               onChange={(e) => {
                 this.setState({ message: e.target.value }, () => {
@@ -185,7 +149,54 @@ class Connector extends React.Component {
               Received messages: {this.state.messages.map(this.renderMessage)}
             </div> */}
 
-            <span><br />This message uses a ROT13 sub cipher, you'll need to rotate each word by x steps,<br /> can you do it within the time limit!!?!</span>
+            <span  style={{ paddingTop: '4rem' }}><br />This message uses a ROT13 sub cipher, you'll need to rotate each word by x steps,<br /> can you do it within the time limit!!?!</span>
+            <div  style={{ paddingTop: '5rem' }}>
+              {this.state.layer === 4 ? (
+                <img src="1use1.png" width="150" height="150" />
+              ) : (
+                <img src="use1.png" width="120" height="120" />
+              )}
+              <img style={{ paddingLeft: '10px', paddingRight: '10px' }} src="arrow.png" width="70" height="50" />
+              
+              {this.state.layer === 3 ? (
+                <div>
+                <img src="1use2.png" width="150" height="150" />
+                <span>Zcl Bmtcp</span>
+                </div>
+              ) : (
+                <img src="use2.png" width="120" height="120" />
+              )}
+              <img style={{ paddingLeft: '10px', paddingRight: '10px' }} src="arrow.png" width="70" height="50" />
+              
+              {this.state.layer === 2 ? (
+                <div>
+                <img src="1use3.png" width="150" height="150" />
+                <span>Ehq Gryhu</span>
+                </div>
+              ) : (
+                <img src="use3.png" width="120" height="120" />
+              )}
+              <img style={{ paddingLeft: '10px', paddingRight: '10px' }} src="arrow.png" width="70" height="50" />
+              
+              {this.state.layer === 1 ? (
+                <div>
+                <img src="1use4.png" width="150" height="150" />
+                <span>Mpy Ozgpc</span>
+                </div>
+              ) : (
+                <img src="use4.png" width="120" height="120" />
+              )}
+              <img style={{ paddingLeft: '10px', paddingRight: '10px' }} src="arrow.png" width="70" height="50" />
+              
+              {this.state.layer === 0 ? (
+                <div>
+                <img src="1use5.png" width="150" height="150" />
+                <span>Ben Dover</span>
+                </div>
+              ) : (
+                <img src="use5.png" width="120" height="120" />
+              )}
+            </div>
           </div>
           </center>
           </div>
