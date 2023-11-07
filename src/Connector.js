@@ -69,7 +69,7 @@ class Connector extends React.Component {
       this.state.layer = 3;
     }
     else if (this.state.layer === 3) {
-      this.setState({ steps: `5` });
+      // this.setState({ steps: `5` });
       if (msg === "Zcl Bmtcp") {
         console.log("yes")
         this.setState({ isCorrect: false, statusMsg: `He dropped a message: "Zcl Bmtcp". Send it to start` });
@@ -78,7 +78,7 @@ class Connector extends React.Component {
       }
     }
     else if (this.state.layer === 2) {
-      this.setState({ steps: `8` });
+      this.setState({ steps: `5` });
       this.setState({ code: `Zcl Bmtcp` });
       if (this.state.message === "Ehq Gryhu") {
         this.setState({ isCorrect: false, statusMsg: `Successfully peeled off first layer. Continue!` });
@@ -87,7 +87,7 @@ class Connector extends React.Component {
       }
     }
     else if (this.state.layer === 1) {
-      this.setState({ steps: `15` });
+      this.setState({ steps: `8` });
       this.setState({ code: `Ehq Gryhu` });
       if (this.state.message === "Mpy Ozgpc") {
         this.setState({ isCorrect: false, statusMsg: `Successfully peeled off second layer. Continue!` });
@@ -96,6 +96,7 @@ class Connector extends React.Component {
       }
     }
     else if (this.state.layer === 0) {
+      this.setState({ steps: `15` });
       this.setState({ code: `Mpy Ozgpc` });
       if (this.state.message === "Ben Dover") {
         this.setState({ isCorrect: false, statusMsg: `Successfully peeled off last layer. One more!` });
