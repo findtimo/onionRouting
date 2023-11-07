@@ -137,7 +137,7 @@ class Connector extends React.Component {
     return <div>
       {this.state.isConnected ? (
         this.state.layer >= 0 ? (
-          <div style={{ width: '80%' }}>
+          <div style={{ width: '100%' }}>
           {/* <img src="Tor-Emblem.png" alt="Onion Routing Logo" width="150" height="150"/> */}
           <center><h1>Decipher the Message, Find the Killer!</h1></center>
             <center><div>
