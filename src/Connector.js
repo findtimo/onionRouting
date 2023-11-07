@@ -18,7 +18,7 @@ class Connector extends React.Component {
       message: '',
       messages: [],
       layer: 4,
-      steps: 5,
+      steps: '',
       code: 'None',
     }
   }
