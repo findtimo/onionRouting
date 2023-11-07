@@ -18,7 +18,7 @@ class Connector extends React.Component {
       message: '',
       messages: [],
       layer: 4,
-      steps: 21,
+      steps: 5,
       code: 'None',
     }
   }
@@ -69,7 +69,7 @@ class Connector extends React.Component {
       this.state.layer = 3;
     }
     else if (this.state.layer === 3) {
-      this.setState({ steps: `21` });
+      this.setState({ steps: `5` });
       if (msg === "Zcl Bmtcp") {
         console.log("yes")
         this.setState({ isCorrect: false, statusMsg: `He dropped a message: "Zcl Bmtcp". Send it to start` });
@@ -78,7 +78,7 @@ class Connector extends React.Component {
       }
     }
     else if (this.state.layer === 2) {
-      this.setState({ steps: `18` });
+      this.setState({ steps: `8` });
       this.setState({ code: `Zcl Bmtcp` });
       if (this.state.message === "Ehq Gryhu") {
         this.setState({ isCorrect: false, statusMsg: `Successfully peeled off first layer. Continue!` });
@@ -87,7 +87,7 @@ class Connector extends React.Component {
       }
     }
     else if (this.state.layer === 1) {
-      this.setState({ steps: `11` });
+      this.setState({ steps: `15` });
       this.setState({ code: `Ehq Gryhu` });
       if (this.state.message === "Mpy Ozgpc") {
         this.setState({ isCorrect: false, statusMsg: `Successfully peeled off second layer. Continue!` });
@@ -142,7 +142,7 @@ class Connector extends React.Component {
           <center><h1>Decipher the Message, Find the Killer!</h1></center>
             <center><div>
             <h2 style={{ paddingTop: '15px' }}>{this.state.statusMsg}</h2>
-            <span  style={{  }}>This message uses a ROT13 sub cipher, you'll need to rotate this word by {this.state.steps} steps,<br /> can you do it within the time limit!!?!<br/><br/></span>
+            <span  style={{  }}>This message uses a ROT{this.state.steps} sub cipher, you'll need to rotate this word forward by {this.state.steps} steps,<br /> can you do it within the time limit!!?!<br/><br/></span>
             <input
               placeholder='Send the deciphered message'
               value={this.state.message}
